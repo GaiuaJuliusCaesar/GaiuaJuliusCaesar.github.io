@@ -1,19 +1,805 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <title>我的第一个网站</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成都 - 天府之国旅游官网</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            text-align: center; 
-            padding: 50px; 
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    :root {
+        --primary: #2e8b57;
+        --primary-dark: #1e6b47;
+        --secondary: #f4a261;
+        --light: #f8f9fa;
+        --dark: #343a40;
+        --text: #333;
+    }
+
+    body {
+        font-family: 'Noto Sans SC', sans-serif;
+        color: var(--text);
+        line-height: 1.6;
+        background-color: #f5f5f5;
+        overflow-x: hidden;
+    }
+        /* 导航栏样式 */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(46, 139, 87, 0.95);
+    padding: 15px 0;
+    transition: all 0.3s ease;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-links a:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover:after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: #ffd700;
+}
+
+.menu-toggle {
+    display: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+        /* 英雄区域样式 */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                url('https://images.unsplash.com/photo-1544986581-efac024faf62?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 0 20px;
+    animation: fadeInUp 1s ease;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.btn {
+    display: inline-block;
+    background: var(--secondary);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    background: #e76f51;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid white;
+    margin-left: 15px;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--primary);
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+}
+        /* 特色区域样式 */
+.features {
+    padding: 100px 20px;
+    background: white;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+.section-title h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--secondary);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.feature-img {
+    height: 250px;
+    overflow: hidden;
+}
+
+.feature-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.feature-card:hover .feature-img img {
+    transform: scale(1.1);
+}
+
+.feature-content {
+    padding: 25px;
+}
+
+.feature-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+        /* 目的地样式 */
+.destinations {
+    padding: 100px 20px;
+    background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+}
+
+.destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.destination-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.destination-img {
+    height: 200px;
+}
+
+.destination-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.destination-content {
+    padding: 20px;
+}
+
+.destination-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+.rating {
+    color: #ffc107;
+    margin-bottom: 10px;
+}
+        /* 美食区域样式 */
+.food {
+    padding: 100px 20px;
+    background: white;
+    text-align: center;
+}
+
+.food-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 40px auto 0;
+}
+
+.food-item {
+    position: relative;
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.food-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.food-item:hover img {
+    transform: scale(1.1);
+}
+
+.food-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.food-item:hover .food-overlay {
+    transform: translateY(0);
+    opacity: 1;
+}
+       /* 页脚样式 */
+footer {
+    background: var(--dark);
+    color: white;
+    padding: 60px 20px 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+}
+
+.footer-column h3 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: var(--secondary);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-column h3:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--secondary);
+}
+
+.footer-column p, .footer-column a {
+    color: #ddd;
+    margin-bottom: 10px;
+    display: block;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: var(--secondary);
+}
+
+.social-links {
+    display: flex;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: var(--secondary);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: #aaa;
+    font-size: 0.9rem;
+} 
+        /* 动画效果 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+    }
+    40% {
+        transform: translateY(-20px) translateX(-50%);
+    }
+    60% {
+        transform: translateY(-10px) translateX(-50%);
+    }
+}
+                /* 响应式设计 */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.3rem;
+            }
         }
-        h1 { color: #3366cc; }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--primary-dark);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: all 0.4s ease;
+            }
+            
+            .nav-links.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hero h2 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .btn {
+                display: block;
+                margin: 10px auto;
+                max-width: 250px;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>欢迎来到我的网站！🎉</h1>
-    <p>这是用GitHub Pages搭建的免费网站</p >
-    < img src="https://via.placeholder.com/300" alt="示例图片">
+    <!-- 导航栏 -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                < img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Chengdu_panda.png/220px-Chengdu_panda.png" alt="成都旅游">
+                <h1>成都旅游</h1>
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li>首页</li>
+                <li>特色体验</li>
+                <li>旅游景点</li>
+                <li>成都美食</li>
+                <li>旅行计划</li>
+                <li>联系我们</li>
+            </ul>
+        </nav>
+    </header>
+    <!-- 英雄区域 -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h2>发现成都，感受天府之国的魅力</h2>
+        <p>探索这座融合了千年历史与现代活力的城市</p >
+        <div class="hero-buttons">
+            探索景点
+            计划行程
+        </div>
+    </div>
+    <a href="#features" class="scroll-down">
+        <i class="fas fa-chevron-down"></i>
+    </a >
+</section>
+<!-- 特色区域 -->
+<section class="features" id="features">
+    <div class="section-title">
+        <h2>成都特色体验</h2>
+    </div>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-img">
+                < img src="https://images.unsplash.com/photo-1584735264936-940cd6858cef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="大熊猫">
+            </div>
+            <div class="feature-content">
+                <h3>大熊猫基地</h3>
+                <p>探访中国国宝大熊猫的家园，近距离观察这些可爱的生物，了解保护工作。</p >
+            </div>
+        </div>
+        <div class="feature-card">
+            <div class="feature-img">
+                < img src="https://images.unsplash.com/photo-1593239510505-5b0c6348f373?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="川剧">
+            </div>
+            <div class="feature-content">
+                <h3>川剧变脸</h3>
+                <p>欣赏神秘的川剧变脸表演，感受四川传统戏曲的魅力与文化传承。</p >
+            </div>
+        </div>
+        <div class="feature-card">
+            <div class="feature-img">
+                < img src="https://images.unsplash.com/photo-1593239510667-41ff1c2b24b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="茶馆">
+            </div>
+            <div class="feature-content">
+                <h3>老成都茶馆</h3>
+                <p>在百年茶馆品一杯香茗，体验成都悠闲的慢生活节奏和市井文化。</p >
+            </div>
+        </div>
+    </div>
+</section>
+<!-- 目的地区域 -->
+<section class="destinations" id="destinations">
+    <div class="section-title">
+        <h2>热门旅游景点</h2>
+    </div>
+    <div class="destinations-grid">
+        <div class="destination-card">
+            <div class="destination-img">
+                < img src="https://images.unsplash.com/photo-1543429776-2782fc586c9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="宽窄巷子">
+            </div>
+            <div class="destination-content">
+                <h3>宽窄巷子</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p>清代古街道改造的文化商业区，体验老成都的市井生活。</p >
+            </div>
+        </div>
+        <div class="destination-card">
+            <div class="destination-img">
+                < img src="https://images.unsplash.com/photo-1601288496920-ed61541b1936?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="都江堰">
+            </div>
+            <div class="destination-content">
+                <h3>都江堰</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>世界文化遗产，两千多年前的水利工程奇迹，至今仍在发挥作用。</p >
+            </div>
+        </div>
+        <div class="destination-card">
+            <div class="destination-img">
+                < img src="https://images.unsplash.com/photo-1593239510802-7a5d5d7e4b0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="锦里">
+            </div>
+            <div class="destination-content">
+                <h3>锦里古街</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p>三国文化主题街区，品尝地道小吃，购买特色手工艺品。</p >
+            </div>
+        </div>
+        <div class="destination-card">
+            <div class="destination-img">
+                < img src="https://images.unsplash.com/photo-1593239510661-0f5b6b6b9d0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="青城山">
+            </div>
+            <div class="destination-content">
+                <h3>青城山</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p>道教发源地之一，素有"青城天下幽"的美誉，自然风光与人文景观完美结合。</p >
+            </div>
+        </div>
+    </div>
+</section>
+<!-- 美食区域 -->
+<section class="food" id="food">
+    <div class="section-title">
+        <h2>成都美食</h2>
+    </div>
+    <p style="max-width: 800px; margin: 0 auto 30px; font-size: 1.2rem;">
+        成都被誉为"美食之都"，以其麻辣鲜香的川菜闻名于世。从街边小吃到高档餐厅，满足每一位食客的味蕾。
+    </p >
+    <div class="food-gallery">
+        <div class="food-item">
+            < img src="https://images.unsplash.com/photo-1593239510505-5b0c6348f373?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="火锅">
+            <div class="food-overlay">
+                <h3>麻辣火锅</h3>
+                <p>成都最具代表性的美食</p >
+            </div>
+        </div>
+        <div class="food-item">
+            < img src="https://images.unsplash.com/photo-1593239510505-5b0c6348f373?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="串串香">
+            <div class="food-overlay">
+                <h3>串串香</h3>
+                <p>市井美食的代表</p >
+            </div>
+        </div>
+        <div class="food-item">
+            < img src="https://images.unsplash.com/photo-1593239510505-5b0c6348f373?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="担担面">
+            <div class="food-overlay">
+                <h3>担担面</h3>
+                <p>百年历史的面食</p >
+            </div>
+        </div>
+        <div class="food-item">
+            < img src="https://images.unsplash.com/photo-1593239510505-5b0c6348f373?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="龙抄手">
+            <div class="food-overlay">
+                <h3>龙抄手</h3>
+                <p>成都特色馄饨</p >
+            </div>
+        </div>
+    </div>
+</section>
+<!-- 页脚 -->
+<footer id="contact">
+    <div class="footer-content">
+        <div class="footer-column">
+            <h3>关于成都旅游</h3>
+            <p>成都旅游官网为您提供最全面、最权威的成都旅游信息，包括景点介绍、美食推荐、行程规划等，助您深度体验天府之国的独特魅力。</p >
+            <div class="social-links">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-weibo"></i>
+            </div>
+        </div>
+        <div class="footer-column">
+            <h3>快速链接</h3>
+            首页
+            特色体验
+            旅游景点
+            成都美食
+            旅行计划
+        </div>
+        <div class="footer-column">
+            <h3>实用信息</h3>
+            最佳旅游时间
+            交通指南
+            住宿推荐
+            旅游地图
+            紧急联系方式
+        </div>
+        <div class="footer-column">
+            <h3>联系我们</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 中国四川省成都市锦江区</p >
+            <p><i class="fas fa-phone"></i> +86 28 1234 5678</p >
+            <p><i class="fas fa-envelope"></i> info@chengdutravel.com</p >
+        </div>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2023 成都旅游局. 保留所有权利.</p >
+    </div>
+</footer>
+    <script>
+        // 导航菜单切换
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                navLinks.classList.remove('active');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // 滚动时导航栏效果
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '10px 0';
+                header.style.background = 'rgba(46, 139, 87, 1)';
+            } else {
+                header.style.padding = '15px 0';
+                header.style.background = 'rgba(46, 139, 87, 0.95)';
+            }
+        });
+        
+        // 页面加载动画
+        window.addEventListener('load', () => {
+            const features = document.querySelector('.features-grid');
+            const destinations = document.querySelector('.destinations-grid');
+            const food = document.querySelector('.food-gallery');
+            
+            features.style.opacity = '0';
+            destinations.style.opacity = '0';
+            food.style.opacity = '0';
+            
+            setTimeout(() => {
+                features.style.transition = 'opacity 1s ease';
+                features.style.opacity = '1';
+            }, 500);
+            
+            setTimeout(() => {
+                destinations.style.transition = 'opacity 1s ease';
+                destinations.style.opacity = '1';
+            }, 1000);
+            
+            setTimeout(() => {
+                food.style.transition = 'opacity 1s ease';
+                food.style.opacity = '1';
+            }, 1500);
+        });
+    </script>
 </body>
 </html>
