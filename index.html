@@ -3,804 +3,714 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>成都 - 天府之国旅游官网</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>吉大经济学术资源导航</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    :root {
-        --primary: #2e8b57;
-        --primary-dark: #1e6b47;
-        --secondary: #f4a261;
-        --light: #f8f9fa;
-        --dark: #343a40;
-        --text: #333;
-    }
-
-    body {
-        font-family: 'Noto Sans SC', sans-serif;
-        color: var(--text);
-        line-height: 1.6;
-        background-color: #f5f5f5;
-        overflow-x: hidden;
-    }
-        /* 导航栏样式 */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background: rgba(46, 139, 87, 0.95);
-    padding: 15px 0;
-    transition: all 0.3s ease;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo img {
-    height: 50px;
-    margin-right: 10px;
-}
-
-.logo h1 {
-    color: white;
-    font-size: 1.8rem;
-    font-weight: 700;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-}
-
-.nav-links li {
-    margin-left: 30px;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.nav-links a:after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: white;
-    transition: width 0.3s ease;
-}
-
-.nav-links a:hover:after {
-    width: 100%;
-}
-
-.nav-links a:hover {
-    color: #ffd700;
-}
-
-.menu-toggle {
-    display: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-        /* 英雄区域样式 */
-.hero {
-    height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                url('https://images.unsplash.com/photo-1544986581-efac024faf62?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    position: relative;
-}
-
-.hero-content {
-    max-width: 800px;
-    padding: 0 20px;
-    animation: fadeInUp 1s ease;
-}
-
-.hero h2 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-}
-
-.hero p {
-    font-size: 1.5rem;
-    margin-bottom: 30px;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
-}
-
-.btn {
-    display: inline-block;
-    background: var(--secondary);
-    color: white;
-    padding: 12px 30px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.btn:hover {
-    background: #e76f51;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.btn-outline {
-    background: transparent;
-    border: 2px solid white;
-    margin-left: 15px;
-}
-
-.btn-outline:hover {
-    background: white;
-    color: var(--primary);
-}
-
-.scroll-down {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    font-size: 2rem;
-    animation: bounce 2s infinite;
-}
-        /* 特色区域样式 */
-.features {
-    padding: 100px 20px;
-    background: white;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.section-title h2 {
-    font-size: 2.5rem;
-    color: var(--primary);
-    position: relative;
-    display: inline-block;
-    padding-bottom: 15px;
-}
-
-.section-title h2:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: var(--secondary);
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.feature-card {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.feature-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-}
-
-.feature-img {
-    height: 250px;
-    overflow: hidden;
-}
-
-.feature-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.feature-card:hover .feature-img img {
-    transform: scale(1.1);
-}
-
-.feature-content {
-    padding: 25px;
-}
-
-.feature-content h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: var(--primary);
-}
-        /* 目的地样式 */
-.destinations {
-    padding: 100px 20px;
-    background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
-}
-
-.destinations-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.destination-card {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.destination-img {
-    height: 200px;
-}
-
-.destination-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.destination-content {
-    padding: 20px;
-}
-
-.destination-content h3 {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-    color: var(--primary);
-}
-
-.rating {
-    color: #ffc107;
-    margin-bottom: 10px;
-}
-        /* 美食区域样式 */
-.food {
-    padding: 100px 20px;
-    background: white;
-    text-align: center;
-}
-
-.food-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    max-width: 1200px;
-    margin: 40px auto 0;
-}
-
-.food-item {
-    position: relative;
-    height: 300px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.food-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.food-item:hover img {
-    transform: scale(1.1);
-}
-
-.food-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
-    color: white;
-    transform: translateY(30px);
-    opacity: 0;
-    transition: all 0.4s ease;
-}
-
-.food-item:hover .food-overlay {
-    transform: translateY(0);
-    opacity: 1;
-}
-       /* 页脚样式 */
-footer {
-    background: var(--dark);
-    color: white;
-    padding: 60px 20px 20px;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto 40px;
-}
-
-.footer-column h3 {
-    font-size: 1.4rem;
-    margin-bottom: 20px;
-    color: var(--secondary);
-    position: relative;
-    padding-bottom: 10px;
-}
-
-.footer-column h3:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50px;
-    height: 2px;
-    background: var(--secondary);
-}
-
-.footer-column p, .footer-column a {
-    color: #ddd;
-    margin-bottom: 10px;
-    display: block;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-column a:hover {
-    color: var(--secondary);
-}
-
-.social-links {
-    display: flex;
-    margin-top: 20px;
-}
-
-.social-links a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 50%;
-    margin-right: 10px;
-    transition: all 0.3s ease;
-}
-
-.social-links a:hover {
-    background: var(--secondary);
-    transform: translateY(-3px);
-}
-
-.copyright {
-    text-align: center;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    color: #aaa;
-    font-size: 0.9rem;
-} 
-        /* 动画效果 */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0) translateX(-50%);
-    }
-    40% {
-        transform: translateY(-20px) translateX(-50%);
-    }
-    60% {
-        transform: translateY(-10px) translateX(-50%);
-    }
-}
-                /* 响应式设计 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        :root {
+            --primary: #1a4b8c;
+            --secondary: #e63946;
+            --light: #f1faee;
+            --dark: #1d3557;
+            --accent: #457b9d;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 头部样式 */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo img {
+            height: 60px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--light);
+            font-weight: 300;
+        }
+        
+        /* 导航栏 */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            padding: 1rem 1.5rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        /* 主要内容区域 */
+        .main-content {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            margin-bottom: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .card-title {
+            font-size: 1.4rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .resource-item {
+            background: var(--light);
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .resource-item:hover {
+            background: #e3f2fd;
+            transform: translateX(5px);
+        }
+        
+        .resource-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .resource-info h3 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+        
+        .resource-info p {
+            font-size: 0.85rem;
+            color: #666;
+        }
+        
+        /* AI助手区域 */
+        .ai-assistant {
+            background: linear-gradient(135deg, var(--primary), #2a5ba0);
+            color: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+        
+        .ai-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .ai-title i {
+            font-size: 1.5rem;
+        }
+        
+        .ai-chat {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            height: 200px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+        }
+        
+        .ai-input {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .ai-input input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .ai-input button {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 0 25px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .ai-input button:hover {
+            background: #c1121f;
+        }
+        
+        /* 侧边栏 */
+        .sidebar-card {
+            margin-bottom: 25px;
+        }
+        
+        .sidebar-title {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light);
+        }
+        
+        .professor-list {
+            list-style: none;
+        }
+        
+        .professor-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .professor-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .professor-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        /* 页脚 */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--light);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* 响应式设计 */
         @media (max-width: 992px) {
-            .hero h2 {
-                font-size: 2.8rem;
+            .main-content {
+                grid-template-columns: 1fr;
             }
             
-            .hero p {
-                font-size: 1.3rem;
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
-
+        
         @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
             }
             
             .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--primary-dark);
-                flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-                transition: all 0.4s ease;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             
-            .nav-links.active {
-                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            .resources-grid {
+                grid-template-columns: 1fr;
             }
             
-            .nav-links li {
-                margin: 15px 0;
-            }
-            
-            .hero h2 {
-                font-size: 2.3rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .btn {
-                display: block;
-                margin: 10px auto;
-                max-width: 250px;
-            }
-            
-            .btn-outline {
-                margin-left: 0;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h2 {
-                font-size: 2rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .logo h1 {
-                font-size: 1.5rem;
+            .footer-content {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <!-- 导航栏 -->
+    <!-- 头部 -->
     <header>
-        <nav class="navbar">
-            <div class="logo">
-                <img src="https://imgs.699pic.com/images/600/197/715.jpg!list1x.v2" alt="成都旅游">
-                <h1>成都旅游</h1>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-university fa-3x"></i>
+                    <div>
+                        <h1>吉大经济学术资源导航</h1>
+                        <span>吉林大学经济学院 · 一站式学术资源平台</span>
+                    </div>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="搜索学术资源..." style="padding: 10px 15px; border-radius: 30px; border: none; width: 250px;">
+                </div>
             </div>
-            <div class="menu-toggle" id="menuToggle">
-                <i class="fas fa-bars"></i>
-            </div>
-            <ul class="nav-links" id="navLinks">
-                <li>首页</li>
-                <li>特色体验</li>
-                <li>旅游景点</li>
-                <li>成都美食</li>
-                <li>旅行计划</li>
-                <li>联系我们</li>
-            </ul>
-        </nav>
+        </div>
     </header>
-    <!-- 英雄区域 -->
-<section class="hero" id="home">
-    <div class="hero-content">
-        <h2>发现成都，感受天府之国的魅力</h2>
-        <p>探索这座融合了千年历史与现代活力的城市</p >
-        <div class="hero-buttons">
-            探索景点
-            计划行程
+    
+    <!-- 导航栏 -->
+    <nav>
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#" class="active"><i class="fas fa-home"></i> 首页</a></li>
+                <li><a href="#"><i class="fas fa-book"></i> 核心期刊</a></li>
+                <li><a href="#"><i class="fas fa-database"></i> 学术数据库</a></li>
+                <li><a href="#"><i class="fas fa-tools"></i> 研究工具</a></li>
+                <li><a href="#"><i class="fas fa-user-graduate"></i> 学者主页</a></li>
+                <li><a href="#"><i class="fas fa-calendar-alt"></i> 学术会议</a></li>
+                <li><a href="#"><i class="fas fa-graduation-cap"></i> 学习资源</a></li>
+            </ul>
         </div>
-    </div>
-    <a href="#features" class="scroll-down">
-        <i class="fas fa-chevron-down"></i>
-    </a >
-</section>
-<!-- 特色区域 -->
-<section class="features" id="features">
-    <div class="section-title">
-        <h2>成都特色体验</h2>
-    </div>
-    <div class="features-grid">
-        <div class="feature-card">
-            <div class="feature-img">
-                <img src="http://kkimgs.yisou.com/ims?kt=url&at=ori&key=aHR0cDovL3AyLm11c2ljLjEyNi5uZXQvN0VnT2JnM1ctQnMxVGlRUGVCNWwwQT09LzEwOTk1MTE2NjU1NTM0MDY4OC5qcGc=&sign=yx:nPb7RRAzH_3jiGr4RCmlw2aVVmU=&tv=0_0" alt="大熊猫">
-            </div>
-            <div class="feature-content">
-                <h3>大熊猫基地</h3>
-                <p>探访中国国宝大熊猫的家园，近距离观察这些可爱的生物，了解保护工作。</p >
-            </div>
-        </div>
-        <div class="feature-card">
-            <div class="feature-img">
-                <img src="https://images.unsplash.com/photo-1593239510505-5b0c6348f373?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="川剧">
-            </div>
-            <div class="feature-content">
-                <h3>川剧变脸</h3>
-                <p>欣赏神秘的川剧变脸表演，感受四川传统戏曲的魅力与文化传承。</p >
-            </div>
-        </div>
-        <div class="feature-card">
-            <div class="feature-img">
-                <img src="https://images.unsplash.com/photo-1593239510667-41ff1c2b24b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="茶馆">
-            </div>
-            <div class="feature-content">
-                <h3>老成都茶馆</h3>
-                <p>在百年茶馆品一杯香茗，体验成都悠闲的慢生活节奏和市井文化。</p >
-            </div>
-        </div>
-    </div>
-</section>
-<!-- 目的地区域 -->
-<section class="destinations" id="destinations">
-    <div class="section-title">
-        <h2>热门旅游景点</h2>
-    </div>
-    <div class="destinations-grid">
-        <div class="destination-card">
-            <div class="destination-img">
-                <img src="https://images.unsplash.com/photo-1543429776-2782fc586c9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="宽窄巷子">
-            </div>
-            <div class="destination-content">
-                <h3>宽窄巷子</h3>
-                <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
+    </nav>
+    
+    <!-- 主要内容 -->
+    <div class="container">
+        <div class="main-content">
+            <!-- 左侧内容 -->
+            <div class="left-content">
+                <!-- 核心期刊 -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">核心期刊</h2>
+                        <a href="#" style="color: var(--primary); text-decoration: none;">查看更多 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="resources-grid">
+                        <div class="resource-item">
+                            <div class="resource-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="resource-info">
+                                <h3>经济研究</h3>
+                                <p>国内顶级经济学期刊</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <div class="resource-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="resource-info">
+                                <h3>管理世界</h3>
+                                <p>管理类权威期刊</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <div class="resource-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="resource-info">
+                                <h3>经济学(季刊)</h3>
+                                <p>北京大学主办</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <div class="resource-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="resource-info">
+                                <h3>世界经济</h3>
+                                <p>国际经济学研究</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <p>清代古街道改造的文化商业区，体验老成都的市井生活。</p >
-            </div>
-        </div>
-        <div class="destination-card">
-            <div class="destination-img">
-                <img src="https://images.unsplash.com/photo-1601288496920-ed61541b1936?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="都江堰">
-            </div>
-            <div class="destination-content">
-                <h3>都江堰</h3>
-                <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+                
+                <!-- 学术数据库 -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">学术数据库</h2>
+                        <a href="#" style="color: var(--primary); text-decoration: none;">查看更多 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="resources-grid">
+                        <div class="resource-item">
+                            <div class="resource-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="resource-info">
+                                <h3>中国知网(CNKI)</h3>
+                                <p>中文学术文献数据库</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <div class="resource-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="resource-info">
+                                <h3>万方数据</h3>
+                                <p>综合性学术资源平台</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <div class="resource-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="resource-info">
+                                <h3>Web of Science</h3>
+                                <p>国际核心期刊数据库</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <div class="resource-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="resource-info">
+                                <h3>JSTOR</h3>
+                                <p>西文过刊全文数据库</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <p>世界文化遗产，两千多年前的水利工程奇迹，至今仍在发挥作用。</p >
-            </div>
-        </div>
-        <div class="destination-card">
-            <div class="destination-img">
-                <img src="https://pic.nximg.cn/file/20230306/31613715_232324989105_2.jpg" alt="锦里">
-            </div>
-            <div class="destination-content">
-                <h3>锦里古街</h3>
-                <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
+                
+                <!-- 研究工具 -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">研究工具</h2>
+                        <a href="#" style="color: var(--primary); text-decoration: none;">查看更多 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="resources-grid">
+                        <div class="resource-item">
+                            <div class="resource-icon">
+                                <i class="fas fa-toolbox"></i>
+                            </div>
+                            <div class="resource-info">
+                                <h3>Zotero</h3>
+                                <p>参考文献管理工具</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <div class="resource-icon">
+                                <i class="fas fa-toolbox"></i>
+                            </div>
+                            <div class="resource-info">
+                                <h3>Overleaf</h3>
+                                <p>在线LaTeX编辑器</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <div class="resource-icon">
+                                <i class="fas fa-toolbox"></i>
+                            </div>
+                            <div class="resource-info">
+                                <h3>Stata</h3>
+                                <p>计量经济学软件</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <div class="resource-icon">
+                                <i class="fas fa-toolbox"></i>
+                            </div>
+                            <div class="resource-info">
+                                <h3>R/Python</h3>
+                                <p>数据分析和可视化</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <p>三国文化主题街区，品尝地道小吃，购买特色手工艺品。</p >
-            </div>
-        </div>
-        <div class="destination-card">
-            <div class="destination-img">
-                <img src="&"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" --host-rules="MAP github.com octocaptcha.com, MAP github.githubassets.com yelp.com, MAP *.githubusercontent.com githubusercontent.com" --host-resolver-rules="MAP octocaptcha.com 20.27.177.113, MAP yelp.com 199.232.240.116, MAP githubusercontent.com 199.232.176.133"" alt="青城山">
-            </div>
-            <div class="destination-content">
-                <h3>青城山</h3>
-                <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
+                
+                <!-- AI助手 -->
+                <div class="ai-assistant">
+                    <div class="ai-title">
+                        <i class="fas fa-robot"></i>
+                        <h2>经济学AI助手</h2>
+                    </div>
+                    <div class="ai-chat" id="aiChat">
+                        <div class="message ai-message">
+                            <p>您好！我是经济学AI助手，可以回答关于经济学理论、研究方法、经典文献等问题。请问有什么可以帮助您的？</p>
+                        </div>
+                    </div>
+                    <div class="ai-input">
+                        <input type="text" id="aiInput" placeholder="输入您的问题，例如：计量经济学有哪些经典教材？">
+                        <button id="aiSend"><i class="fas fa-paper-plane"></i> 发送</button>
+                    </div>
                 </div>
-                <p>道教发源地之一，素有"青城天下幽"的美誉，自然风光与人文景观完美结合。</p >
+            </div>
+            
+            <!-- 右侧边栏 -->
+            <div class="sidebar">
+                <!-- 知名学者 -->
+                <div class="card sidebar-card">
+                    <h3 class="sidebar-title">知名学者</h3>
+                    <ul class="professor-list">
+                        <li>
+                            <div class="professor-avatar">张</div>
+                            <div>
+                                <h4>张教授</h4>
+                                <p>计量经济学</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="professor-avatar">王</div>
+                            <div>
+                                <h4>王教授</h4>
+                                <p>发展经济学</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="professor-avatar">李</div>
+                            <div>
+                                <h4>李教授</h4>
+                                <p>国际经济学</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="professor-avatar">刘</div>
+                            <div>
+                                <h4>刘教授</h4>
+                                <p>产业经济学</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- 学术动态 -->
+                <div class="card sidebar-card">
+                    <h3 class="sidebar-title">学术动态</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">2023年中国经济学年会征文通知</a></li>
+                        <li><a href="#">数字经济研讨会通知</a></li>
+                        <li><a href="#">《经济研究》最新目录</a></li>
+                        <li><a href="#">国家社科基金申报指南</a></li>
+                        <li><a href="#">计量经济学前沿讲座系列</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 快速链接 -->
+                <div class="card sidebar-card">
+                    <h3 class="sidebar-title">快速链接</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">吉林大学图书馆</a></li>
+                        <li><a href="#">经济学院官网</a></li>
+                        <li><a href="#">研究生培养方案</a></li>
+                        <li><a href="#">学术道德规范</a></li>
+                        <li><a href="#">论文写作指南</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-</section>
-<!-- 美食区域 -->
-<section class="food" id="food">
-    <div class="section-title">
-        <h2>成都美食</h2>
-    </div>
-    <p style="max-width: 800px; margin: 0 auto 30px; font-size: 1.2rem;">
-        成都被誉为"美食之都"，以其麻辣鲜香的川菜闻名于世。从街边小吃到高档餐厅，满足每一位食客的味蕾。
-    </p >
-    <div class="food-gallery">
-        <div class="food-item">
-            <img src="https://ts1.tc.mm.bing.net/th/id/R-C.f6d780cdc773e45b2903db05c8f5e2e7?rik=gS8IR3Mby%2bUZAQ&riu=http%3a%2f%2ftr-osdcp.qunarzz.com%2ftr-osd-tr-space%2fimg%2ff6d780cdc773e45b2903db05c8f5e2e7.jpg%3fver%3d1&ehk=ytfuuX8Vwt%2bBZ7poIU%2fm4L8zFObXrtASDDf0O6FK4rE%3d&risl=&pid=ImgRaw&r=0" alt="火锅">
-            <div class="food-overlay">
-                <h3>麻辣火锅</h3>
-                <p>成都最具代表性的美食</p >
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>关于我们</h3>
+                    <p>本网站由吉林大学经济学院学生开发，旨在为全院师生提供一站式学术资源导航服务，提高学术研究效率。</p>
+                </div>
+                <div class="footer-section">
+                    <h3>资源分类</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">核心期刊</a></li>
+                        <li><a href="#">学术数据库</a></li>
+                        <li><a href="#">研究工具</a></li>
+                        <li><a href="#">学术会议</a></li>
+                        <li><a href="#">学习资源</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>联系我们</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 吉林省长春市前进大街2699号</li>
+                        <li><i class="fas fa-phone"></i> 0431-8516xxxx</li>
+                        <li><i class="fas fa-envelope"></i> econ@jlu.edu.cn</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2023 吉林大学经济学院学术资源导航平台 | 设计开发: 大学生创新创业项目组</p>
             </div>
         </div>
-        <div class="food-item">
-            <img src="http://m.qpic.cn/psc?/V54MSsQe0Qr9884GS5L83ez8o32VgPd7/TmEUgtj9EK6.7V8ajmQrEO9DFl5n9hIaGOPOUjpjMuO2M8nZ6a0M4RHq0jTOL1ojwBvKBKSzmrFtt8YYPKBrBIOXS4EnnS*oJvzQAdg1bPs!/b&bo=yADIAMgAyAABFzA!&rf=viewer_4http://m.qpic.cn/psc?/V54MSsQe0Qr9884GS5L83ez8o32VgPd7/TmEUgtj9EK6.7V8ajmQrEO9DFl5n9hIaGOPOUjpjMuO2M8nZ6a0M4RHq0jTOL1ojwBvKBKSzmrFtt8YYPKBrBIOXS4EnnS*oJvzQAdg1bPs!/b&bo=yADIAMgAyAABFzA!&rf=viewer_4" alt="串串香">
-            <div class="food-overlay">
-                <h3>串串香</h3>
-                <p>市井美食的代表</p >
-            </div>
-        </div>
-        <div class="food-item">
-            < img
-            src="https://images.unsplash.com/photo-1593239510505-5b0c6348f373?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="担担面">
-            <div class="food-overlay">
-                <h3>担担面</h3>
-                <p>百年历史的面食</p >
-            </div>
-        </div>
-        <div class="food-item">
-            < img
-            src="https://images.unsplash.com/photo-1593239510505-5b0c6348f373?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="龙抄手">
-            <div class="food-overlay">
-                <h3>龙抄手</h3>
-                <p>成都特色馄饨</p >
-            </div>
-        </div>
-    </div>
-</section>
-<!-- 页脚 -->
-<footer id="contact">
-    <div class="footer-content">
-        <div class="footer-column">
-            <h3>关于成都旅游</h3>
-            <p>成都旅游官网为您提供最全面、最权威的成都旅游信息，包括景点介绍、美食推荐、行程规划等，助您深度体验天府之国的独特魅力。</p >
-            <div class="social-links">
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-weibo"></i>
-            </div>
-        </div>
-        <div class="footer-column">
-            <h3>快速链接</h3>
-            首页
-            特色体验
-            旅游景点
-            成都美食
-            旅行计划
-        </div>
-        <div class="footer-column">
-            <h3>实用信息</h3>
-            最佳旅游时间
-            交通指南
-            住宿推荐
-            旅游地图
-            紧急联系方式
-        </div>
-        <div class="footer-column">
-            <h3>联系我们</h3>
-            <p><i class="fas fa-map-marker-alt"></i> 中国四川省成都市锦江区</p >
-            <p><i class="fas fa-phone"></i> +86 28 1234 5678</p >
-            <p><i class="fas fa-envelope"></i> info@chengdutravel.com</p >
-        </div>
-    </div>
-    <div class="copyright">
-        <p>&copy; 2023 成都旅游局. 保留所有权利.</p >
-    </div>
-</footer>
+    </footer>
+
     <script>
-        // 导航菜单切换
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-        
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+        // AI助手功能
+        document.getElementById('aiSend').addEventListener('click', function() {
+            const input = document.getElementById('aiInput');
+            const chat = document.getElementById('aiChat');
+            
+            if (input.value.trim() === '') return;
+            
+            // 添加用户消息
+            const userMessage = document.createElement('div');
+            userMessage.className = 'message user-message';
+            userMessage.innerHTML = `<p><strong>您:</strong> ${input.value}</p>`;
+            chat.appendChild(userMessage);
+            
+            // 模拟AI回复
+            setTimeout(function() {
+                const aiMessage = document.createElement('div');
+                aiMessage.className = 'message ai-message';
+                
+                // 根据问题类型提供不同的回答
+                let response = '';
+                const question = input.value.toLowerCase();
+                
+                if (question.includes('计量经济') || question.includes('经典教材')) {
+                    response = '计量经济学的经典教材包括：<br>1. 《计量经济学》- 詹姆斯·H·斯托克、马克·W·沃森<br>2. 《计量经济学基础》- 达摩达尔·N·古扎拉蒂<br>3. 《高级计量经济学》- 陈强<br>4. 《基本无害的计量经济学》- 乔舒亚·安格里斯特';
+                } else if (question.includes('研究方') || question.includes('优缺点')) {
+                    response = '经济学常用研究方法：<br>1. 实证分析：基于实际数据，但需注意内生性问题<br>2. 理论建模：逻辑严谨，但可能与现实脱节<br>3. 案例研究：深入具体，但代表性有限<br>4. 实验经济学：控制变量好，但外部有效性存疑';
+                } else if (question.includes('文献') || question.includes('理论')) {
+                    response = '经济学经典文献推荐：<br>1. 《国富论》- 亚当·斯密<br>2. 《就业、利息和货币通论》- 凯恩斯<br>3. 《资本论》- 马克思<br>4. 《经济学原理》- 曼昆<br>5. 《贫穷的本质》- 班纳吉与迪弗洛';
+                } else {
+                    response = '感谢您的提问！作为经济学AI助手，我可以帮助您了解经济学理论、研究方法、经典文献等内容。请尝试提出更具体的问题，例如："计量经济学有哪些经典教材？"或"XX理论有哪些代表性文献？"';
+                }
+                
+                aiMessage.innerHTML = `<p><strong>AI助手:</strong> ${response}</p>`;
+                chat.appendChild(aiMessage);
+                
+                // 清空输入框
+                input.value = '';
+                
+                // 滚动到底部
+                chat.scrollTop = chat.scrollHeight;
+            }, 1000);
         });
         
-        // 平滑滚动
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                navLinks.classList.remove('active');
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-        
-        // 滚动时导航栏效果
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.padding = '10px 0';
-                header.style.background = 'rgba(46, 139, 87, 1)';
-            } else {
-                header.style.padding = '15px 0';
-                header.style.background = 'rgba(46, 139, 87, 0.95)';
+        // 按Enter键发送消息
+        document.getElementById('aiInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('aiSend').click();
             }
         });
         
-        // 页面加载动画
-        window.addEventListener('load', () => {
-            const features = document.querySelector('.features-grid');
-            const destinations = document.querySelector('.destinations-grid');
-            const food = document.querySelector('.food-gallery');
-            
-            features.style.opacity = '0';
-            destinations.style.opacity = '0';
-            food.style.opacity = '0';
-            
-            setTimeout(() => {
-                features.style.transition = 'opacity 1s ease';
-                features.style.opacity = '1';
-            }, 500);
-            
-            setTimeout(() => {
-                destinations.style.transition = 'opacity 1s ease';
-                destinations.style.opacity = '1';
-            }, 1000);
-            
-            setTimeout(() => {
-                food.style.transition = 'opacity 1s ease';
-                food.style.opacity = '1';
-            }, 1500);
+        // 资源项点击效果
+        document.querySelectorAll('.resource-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const title = this.querySelector('h3').textContent;
+                alert(`您点击了: ${title}\n该功能正在开发中，敬请期待！`);
+            });
         });
     </script>
 </body>
