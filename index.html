@@ -156,11 +156,32 @@
             gap: 15px;
             transition: all 0.3s;
             cursor: pointer;
+            position: relative;
+            text-decoration: none;
+            color: inherit;
         }
         
         .resource-item:hover {
             background: #e3f2fd;
             transform: translateX(5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .resource-item::after {
+            content: "\f35d";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .resource-item:hover::after {
+            opacity: 1;
         }
         
         .resource-icon {
@@ -375,343 +396,4 @@
                     </div>
                 </div>
                 <div class="search-bar">
-                    <input type="text" placeholder="搜索学术资源..." style="padding: 10px 15px; border-radius: 30px; border: none; width: 250px;">
-                </div>
-            </div>
-        </div>
-    </header>
-    
-    <!-- 导航栏 -->
-    <nav>
-        <div class="container">
-            <ul class="nav-links">
-                <li><a href="#" class="active"><i class="fas fa-home"></i> 首页</a></li>
-                <li><a href="#"><i class="fas fa-book"></i> 核心期刊</a></li>
-                <li><a href="#"><i class="fas fa-database"></i> 学术数据库</a></li>
-                <li><a href="#"><i class="fas fa-tools"></i> 研究工具</a></li>
-                <li><a href="#"><i class="fas fa-user-graduate"></i> 学者主页</a></li>
-                <li><a href="#"><i class="fas fa-calendar-alt"></i> 学术会议</a></li>
-                <li><a href="#"><i class="fas fa-graduation-cap"></i> 学习资源</a></li>
-            </ul>
-        </div>
-    </nav>
-    
-    <!-- 主要内容 -->
-    <div class="container">
-        <div class="main-content">
-            <!-- 左侧内容 -->
-            <div class="left-content">
-                <!-- 核心期刊 -->
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title">核心期刊</h2>
-                        <a href="#" style="color: var(--primary); text-decoration: none;">查看更多 <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <div class="resources-grid">
-                        <div class="resource-item">
-                            <div class="resource-icon">
-                                <i class="fas fa-book"></i>
-                            </div>
-                            <div class="resource-info">
-                                <h3>经济研究</h3>
-                                <p>国内顶级经济学期刊</p>
-                            </div>
-                        </div>
-                        <div class="resource-item">
-                            <div class="resource-icon">
-                                <i class="fas fa-book"></i>
-                            </div>
-                            <div class="resource-info">
-                                <h3>管理世界</h3>
-                                <p>管理类权威期刊</p>
-                            </div>
-                        </div>
-                        <div class="resource-item">
-                            <div class="resource-icon">
-                                <i class="fas fa-book"></i>
-                            </div>
-                            <div class="resource-info">
-                                <h3>经济学(季刊)</h3>
-                                <p>北京大学主办</p>
-                            </div>
-                        </div>
-                        <div class="resource-item">
-                            <div class="resource-icon">
-                                <i class="fas fa-book"></i>
-                            </div>
-                            <div class="resource-info">
-                                <h3>世界经济</h3>
-                                <p>国际经济学研究</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 学术数据库 -->
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title">学术数据库</h2>
-                        <a href="#" style="color: var(--primary); text-decoration: none;">查看更多 <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <div class="resources-grid">
-                        <div class="resource-item">
-                            <div class="resource-icon">
-                                <i class="fas fa-database"></i>
-                            </div>
-                            <div class="resource-info">
-                                <h3>中国知网(CNKI)</h3>
-                                <p>中文学术文献数据库</p>
-                            </div>
-                        </div>
-                        <div class="resource-item">
-                            <div class="resource-icon">
-                                <i class="fas fa-database"></i>
-                            </div>
-                            <div class="resource-info">
-                                <h3>万方数据</h3>
-                                <p>综合性学术资源平台</p>
-                            </div>
-                        </div>
-                        <div class="resource-item">
-                            <div class="resource-icon">
-                                <i class="fas fa-database"></i>
-                            </div>
-                            <div class="resource-info">
-                                <h3>Web of Science</h3>
-                                <p>国际核心期刊数据库</p>
-                            </div>
-                        </div>
-                        <div class="resource-item">
-                            <div class="resource-icon">
-                                <i class="fas fa-database"></i>
-                            </div>
-                            <div class="resource-info">
-                                <h3>JSTOR</h3>
-                                <p>西文过刊全文数据库</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 研究工具 -->
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title">研究工具</h2>
-                        <a href="#" style="color: var(--primary); text-decoration: none;">查看更多 <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <div class="resources-grid">
-                        <div class="resource-item">
-                            <div class="resource-icon">
-                                <i class="fas fa-toolbox"></i>
-                            </div>
-                            <div class="resource-info">
-                                <h3>Zotero</h3>
-                                <p>参考文献管理工具</p>
-                            </div>
-                        </div>
-                        <div class="resource-item">
-                            <div class="resource-icon">
-                                <i class="fas fa-toolbox"></i>
-                            </div>
-                            <div class="resource-info">
-                                <h3>Overleaf</h3>
-                                <p>在线LaTeX编辑器</p>
-                            </div>
-                        </div>
-                        <div class="resource-item">
-                            <div class="resource-icon">
-                                <i class="fas fa-toolbox"></i>
-                            </div>
-                            <div class="resource-info">
-                                <h3>Stata</h3>
-                                <p>计量经济学软件</p>
-                            </div>
-                        </div>
-                        <div class="resource-item">
-                            <div class="resource-icon">
-                                <i class="fas fa-toolbox"></i>
-                            </div>
-                            <div class="resource-info">
-                                <h3>R/Python</h3>
-                                <p>数据分析和可视化</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- AI助手 -->
-                <div class="ai-assistant">
-                    <div class="ai-title">
-                        <i class="fas fa-robot"></i>
-                        <h2>经济学AI助手</h2>
-                    </div>
-                    <div class="ai-chat" id="aiChat">
-                        <div class="message ai-message">
-                            <p>您好！我是经济学AI助手，可以回答关于经济学理论、研究方法、经典文献等问题。请问有什么可以帮助您的？</p>
-                        </div>
-                    </div>
-                    <div class="ai-input">
-                        <input type="text" id="aiInput" placeholder="输入您的问题，例如：计量经济学有哪些经典教材？">
-                        <button id="aiSend"><i class="fas fa-paper-plane"></i> 发送</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 右侧边栏 -->
-            <div class="sidebar">
-                <!-- 知名学者 -->
-                <div class="card sidebar-card">
-                    <h3 class="sidebar-title">知名学者</h3>
-                    <ul class="professor-list">
-                        <li>
-                            <div class="professor-avatar">张</div>
-                            <div>
-                                <h4>张教授</h4>
-                                <p>计量经济学</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="professor-avatar">王</div>
-                            <div>
-                                <h4>王教授</h4>
-                                <p>发展经济学</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="professor-avatar">李</div>
-                            <div>
-                                <h4>李教授</h4>
-                                <p>国际经济学</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="professor-avatar">刘</div>
-                            <div>
-                                <h4>刘教授</h4>
-                                <p>产业经济学</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- 学术动态 -->
-                <div class="card sidebar-card">
-                    <h3 class="sidebar-title">学术动态</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">2023年中国经济学年会征文通知</a></li>
-                        <li><a href="#">数字经济研讨会通知</a></li>
-                        <li><a href="#">《经济研究》最新目录</a></li>
-                        <li><a href="#">国家社科基金申报指南</a></li>
-                        <li><a href="#">计量经济学前沿讲座系列</a></li>
-                    </ul>
-                </div>
-                
-                <!-- 快速链接 -->
-                <div class="card sidebar-card">
-                    <h3 class="sidebar-title">快速链接</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">吉林大学图书馆</a></li>
-                        <li><a href="#">经济学院官网</a></li>
-                        <li><a href="#">研究生培养方案</a></li>
-                        <li><a href="#">学术道德规范</a></li>
-                        <li><a href="#">论文写作指南</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- 页脚 -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>关于我们</h3>
-                    <p>本网站由吉林大学经济学院学生开发，旨在为全院师生提供一站式学术资源导航服务，提高学术研究效率。</p>
-                </div>
-                <div class="footer-section">
-                    <h3>资源分类</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">核心期刊</a></li>
-                        <li><a href="#">学术数据库</a></li>
-                        <li><a href="#">研究工具</a></li>
-                        <li><a href="#">学术会议</a></li>
-                        <li><a href="#">学习资源</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>联系我们</h3>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-map-marker-alt"></i> 吉林省长春市前进大街2699号</li>
-                        <li><i class="fas fa-phone"></i> 0431-8516xxxx</li>
-                        <li><i class="fas fa-envelope"></i> econ@jlu.edu.cn</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>© 2023 吉林大学经济学院学术资源导航平台 | 设计开发: 大学生创新创业项目组</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // AI助手功能
-        document.getElementById('aiSend').addEventListener('click', function() {
-            const input = document.getElementById('aiInput');
-            const chat = document.getElementById('aiChat');
-            
-            if (input.value.trim() === '') return;
-            
-            // 添加用户消息
-            const userMessage = document.createElement('div');
-            userMessage.className = 'message user-message';
-            userMessage.innerHTML = `<p><strong>您:</strong> ${input.value}</p>`;
-            chat.appendChild(userMessage);
-            
-            // 模拟AI回复
-            setTimeout(function() {
-                const aiMessage = document.createElement('div');
-                aiMessage.className = 'message ai-message';
-                
-                // 根据问题类型提供不同的回答
-                let response = '';
-                const question = input.value.toLowerCase();
-                
-                if (question.includes('计量经济') || question.includes('经典教材')) {
-                    response = '计量经济学的经典教材包括：<br>1. 《计量经济学》- 詹姆斯·H·斯托克、马克·W·沃森<br>2. 《计量经济学基础》- 达摩达尔·N·古扎拉蒂<br>3. 《高级计量经济学》- 陈强<br>4. 《基本无害的计量经济学》- 乔舒亚·安格里斯特';
-                } else if (question.includes('研究方') || question.includes('优缺点')) {
-                    response = '经济学常用研究方法：<br>1. 实证分析：基于实际数据，但需注意内生性问题<br>2. 理论建模：逻辑严谨，但可能与现实脱节<br>3. 案例研究：深入具体，但代表性有限<br>4. 实验经济学：控制变量好，但外部有效性存疑';
-                } else if (question.includes('文献') || question.includes('理论')) {
-                    response = '经济学经典文献推荐：<br>1. 《国富论》- 亚当·斯密<br>2. 《就业、利息和货币通论》- 凯恩斯<br>3. 《资本论》- 马克思<br>4. 《经济学原理》- 曼昆<br>5. 《贫穷的本质》- 班纳吉与迪弗洛';
-                } else {
-                    response = '感谢您的提问！作为经济学AI助手，我可以帮助您了解经济学理论、研究方法、经典文献等内容。请尝试提出更具体的问题，例如："计量经济学有哪些经典教材？"或"XX理论有哪些代表性文献？"';
-                }
-                
-                aiMessage.innerHTML = `<p><strong>AI助手:</strong> ${response}</p>`;
-                chat.appendChild(aiMessage);
-                
-                // 清空输入框
-                input.value = '';
-                
-                // 滚动到底部
-                chat.scrollTop = chat.scrollHeight;
-            }, 1000);
-        });
-        
-        // 按Enter键发送消息
-        document.getElementById('aiInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                document.getElementById('aiSend').click();
-            }
-        });
-        
-        // 资源项点击效果
-        document.querySelectorAll('.resource-item').forEach(item => {
-            item.addEventListener('click', function() {
-                const title = this.querySelector('h3').textContent;
-                alert(`您点击了: ${title}\n该功能正在开发中，敬请期待！`);
-            });
-        });
-    </script>
-</body>
-</html>
+     
